@@ -1,5 +1,6 @@
 package com.demo.code.com.java.code;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class testcode {
@@ -59,6 +60,21 @@ public class testcode {
 		//Converting an String to Integer
 		
 		
+		//Arraylist 
+		ArrayList al = new ArrayList();
+		al.add("mathu");
+		al.add(123);
+		al.add(null);
+		System.out.println("Size of the list: "+al.size());
+		
+		for (int i=0; i<al.size(); i++) {
+			System.out.println("Element at index " +i +" is "+al.get(i));
+		}
+		System.out.println("printing the list of each");
+		for (Object o: al) {
+			System.out.println("Element is "+o);
+			
+		}
 		
 	}
 
