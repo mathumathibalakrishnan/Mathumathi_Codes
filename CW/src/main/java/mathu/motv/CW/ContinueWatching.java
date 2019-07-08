@@ -1,28 +1,19 @@
 package mathu.motv.CW;
-
-
-import java.util.Iterator;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class ContinueWatching {
-
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
+public static void main(String[] args) throws Exception {
+		
 WebDriverManager.chromedriver().setup();
 WebDriver driver = new ChromeDriver();
-
+/*
 String url[] = new String[15];
-
 url[0] = "https://www.hoichoi.tv";
 url[1] = "https://www.be-at.tv/";
 url[2] = "https://app.myoutdoortv.com";
@@ -36,44 +27,88 @@ url[9] = "https://www.motoamericaliveplus.com/";
 url[10] = "https://www.theidentitytb.com";
 url[11] = "https://www.kronon.tv";
 url[12] = "https://www.premierlacrosseleague.com/";
-//url[13] = "https://capitalonearena.viewlift.com";
 url[13] = "https://www.arenafootball.com";
-url[14] = "https://www.neoufitness.com/home";
+url[14] = "https://capitalonearena.viewlift.com";
+*/
+//for (int i=0; i<=15; i ++) {
 
-for (int i=0; i<=16; i ++) {
+
+String url[] = new String[2];
+url[1] = "https://app.myoutdoortv.com";
+url[0] = "https://www.be-at.tv/";
+String uname[] = new String[2];
+uname[1] = "arul@viewlift.com";
+uname[0] = "bobtest956@gmail.com";
+String pwd[] = new String[2];
+pwd[1] = "test1";
+pwd[0] = "aaaaaa";
+for (int i=0; i<=3; i ++) {
 driver.get(url[i]);
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-//driver.findElement(By.xpath("//*[@class='login-button navigation-link']")).click();
-
-
 WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
-
+/*
 if (element.isDisplayed()) {
 element.click();
-
 }
 else
 {
-JavascriptExecutor js = (JavascriptExecutor) driver;
-js.executeScript("document.body.style.zoom='" + "75%" +"'");
-element.click();
-}
-
+*/
+driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+Actions actions = new Actions(driver);
+actions.click(element).perform();
+	//}
 driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).click();
-driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).sendKeys("bobtest956@gmail.com");
+driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).sendKeys(uname[i]);
 driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).click();
-driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys("aaaaaa");
+driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys(pwd[i]);
 driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/preceding-sibling::input")).submit();
-//driver.findElement(By.xpath("(//*[@type='submit'])[2]")).submit();
 Thread.sleep(2000);
-driver.findElement(By.xpath("//div[@class='logo-container']")).click();
 System.out.println("Logged in " + url[i]);
+if (driver.findElement(By.xpath("//div[@class='continue-watching ']")).isDisplayed()) {
+	WebElement cw = driver.findElement(By.xpath("//*[text() = 'Continue Watching']"));
+	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("arguments[0].scrollIntoView();", cw);
+driver.findElement(By.xpath("(//div[@class='image'])[1]")).click();
+System.out.println("Video started");
+driver.manage().timeouts().implicitlyWait(31, TimeUnit.SECONDS);
+try {                       
+           String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
+           if (erro1.contains("404")) {
+                     System.out.println("Video not working due to " +erro1); }
+                                 driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();
+           }catch(Exception e) {
+                      try {
+                      String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
+                      if (erro.contains("The media could not be loaded")) {
+                                System.out.println("Video not working due to " +erro);
+                            }
+                      }catch(Exception e1 ) {
+                      System.out.println("Video is working fine without any issue");         
+                       }                 
+driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
+           }
+Thread.sleep(10000);
+}
+else {
+	System.out.println("Continue watching tray not available");
+}
+WebElement logo = driver.findElement(By.xpath("//div[@class='logo-container']"));
+Actions actions1 = new Actions(driver);
+actions1.click(logo).perform();
 }
 driver.close();
-
 	}
 }
+
+
+
+
+
+
+
+
+
 
 /*
 "https://www.hoichoi.tv"
@@ -81,54 +116,19 @@ driver.close();
 "https://app.myoutdoortv.com"
 "http://site-here-tv.viewlift.com"
 "https://moviespree.com"
-
 "https://www.monumentalsportsnetwork.com"
 "https://afaplay.viewlift.com"
 "https://www.laxsportsnetwork.com"
-"https://www.supercrosslive.tv" --------------------Need vpn
 "https://videos.glorykickboxing.com"
 "https://www.motoamericaliveplus.com/"
 "https://www.theidentitytb.com"
 "https://www.kronon.tv"
 "https://www.premierlacrosseleague.com/"
-"https://capitalonearena.viewlift.com" ---------------able to login but unable to click logo
 
-
-"https://www.arenafootball.com"
-"https://www.neoufitness.com/home"
+"https://www.supercrosslive.tv" --------------------Need vpn
+"https://capitalonearena.viewlift.com" --------------- no login
+"https://www.neoufitness.com/home" ------------------- different layout
 		*/
 
-/*
-WebElement element = driver.findElement(By.id("//*[@class='login-button navigation-link']"));
 
-if (element.isEnabled()) {
-	Actions actions = new Actions(driver);
-	actions.moveToElement(element).click().build().perform();
-
-}
-else
-{
-JavascriptExecutor js = (JavascriptExecutor) driver;
-js.executeScript("document.body.style.zoom='" + "75%" +"'");
-}
-*/
-//Thread.sleep(1000);
-/*
-String MainWindow=driver.getWindowHandle();
-Set<String> s1=driver.getWindowHandles();
-Iterator<String> i1=s1.iterator();
-while(i1.hasNext())			
-{
-	String ChildWindow=i1.next();		
-	
-    if(!MainWindow.equalsIgnoreCase(ChildWindow))			
-    {    		
-    	driver.switchTo().window(ChildWindow);
-    	driver.close();	
-}
-}
-driver.switchTo().window(MainWindow);
-
-driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-*/
 
