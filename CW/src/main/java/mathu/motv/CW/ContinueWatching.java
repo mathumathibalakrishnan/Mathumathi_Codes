@@ -47,13 +47,6 @@ driver.get(url[i]);
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
-/*
-if (element.isDisplayed()) {
-element.click();
-}
-else
-{
-*/
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 Actions actions = new Actions(driver);
 actions.click(element).perform();
