@@ -1,63 +1,57 @@
 package mathu.motv.CW;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class ContinueWatching {
+
+static WebDriver driver;
 public static void main(String[] args) throws Exception {
-		
 WebDriverManager.chromedriver().setup();
 WebDriver driver = new ChromeDriver();
-/*
-String url[] = new String[15];
-url[0] = "https://www.hoichoi.tv";
-url[1] = "https://www.be-at.tv/";
-url[2] = "https://app.myoutdoortv.com";
-url[3] = "http://site-here-tv.viewlift.com";
-url[4] = "https://moviespree.com";
-url[5] = "https://www.monumentalsportsnetwork.com";
-url[6] = "https://afaplay.viewlift.com";
-url[7] = "https://www.laxsportsnetwork.com";
-url[8] = "https://videos.glorykickboxing.com";
-url[9] = "https://www.motoamericaliveplus.com/";
-url[10] = "https://www.theidentitytb.com";
-url[11] = "https://www.kronon.tv";
-url[12] = "https://www.premierlacrosseleague.com/";
-url[13] = "https://www.arenafootball.com";
-url[14] = "https://capitalonearena.viewlift.com";
-*/
+try {
+    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet.xlsx");
+    XSSFWorkbook wb = new XSSFWorkbook(fis);
+    XSSFSheet sheet = wb.getSheet("Sheet1");
+    
+    for(int count = 1;count<=sheet.getLastRowNum();count++){
+        XSSFRow row = sheet.getRow(count);
+        System.out.println("Running test case " + row.getCell(0).toString());
+        runTest(row.getCell(1).toString(),row.getCell(2).toString(), row.getCell(3).toString());
+    }
+    fis.close();
+} catch (IOException e) {
+    System.out.println("Test data file not found");
+}   
+}
+public static void runTest(String url, String uName, String pwd) throws Exception {
 //for (int i=0; i<=15; i ++) {
-
-
-String url[] = new String[2];
-url[0] = "https://app.myoutdoortv.com";
-url[1] = "https://www.be-at.tv/";
-String uname[] = new String[2];
-uname[0] = "arul@viewlift.com";
-uname[1] = "bobtest956@gmail.com";
-String pwd[] = new String[2];
-pwd[0] = "test1";
-pwd[1] = "aaaaaa";
-for (int i=0; i<=3; i ++) {
-driver.get(url[i]);
+driver.get(url);
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 Actions actions = new Actions(driver);
 actions.click(element).perform();
-	//}
 driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).click();
-driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).sendKeys(uname[i]);
+driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).sendKeys(uName);
 driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).click();
-driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys(pwd[i]);
+driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys(pwd);
 driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/preceding-sibling::input")).submit();
 Thread.sleep(2000);
-System.out.println("Logged in " + url[i]);
+System.out.println("Logged in " + url);
 Thread.sleep(1000);
 WebElement CW = driver.findElement(By.xpath("//div[@class='continue-watching ']"));
 if (CW.isDisplayed()) {
@@ -92,8 +86,12 @@ WebElement logo = driver.findElement(By.xpath("//div[@class='logo-container']"))
 Actions actions1 = new Actions(driver);
 actions1.click(logo).perform();
 }
-driver.close();
-	}
+
+	
+
+public void teardown() {
+	driver.close();
+}
 }
 
 
