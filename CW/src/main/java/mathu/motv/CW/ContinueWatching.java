@@ -34,14 +34,14 @@ url[14] = "https://capitalonearena.viewlift.com";
 
 
 String url[] = new String[2];
-url[1] = "https://app.myoutdoortv.com";
-url[0] = "https://www.be-at.tv/";
+url[0] = "https://app.myoutdoortv.com";
+url[1] = "https://www.be-at.tv/";
 String uname[] = new String[2];
-uname[1] = "arul@viewlift.com";
-uname[0] = "bobtest956@gmail.com";
+uname[0] = "arul@viewlift.com";
+uname[1] = "bobtest956@gmail.com";
 String pwd[] = new String[2];
-pwd[1] = "test1";
-pwd[0] = "aaaaaa";
+pwd[0] = "test1";
+pwd[1] = "aaaaaa";
 for (int i=0; i<=3; i ++) {
 driver.get(url[i]);
 driver.manage().window().maximize();
@@ -65,7 +65,9 @@ driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys(pwd[i]
 driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/preceding-sibling::input")).submit();
 Thread.sleep(2000);
 System.out.println("Logged in " + url[i]);
-if (driver.findElement(By.xpath("//div[@class='continue-watching ']")).isDisplayed()) {
+Thread.sleep(1000);
+WebElement CW = driver.findElement(By.xpath("//div[@class='continue-watching ']"));
+if (CW.isDisplayed()) {
 	WebElement cw = driver.findElement(By.xpath("//*[text() = 'Continue Watching']"));
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("arguments[0].scrollIntoView();", cw);
