@@ -20,16 +20,16 @@ public class ContinueWatching {
 static WebDriver driver;
 public static void main(String[] args) throws Exception {
 WebDriverManager.chromedriver().setup();
-WebDriver driver = new ChromeDriver();
+driver = new ChromeDriver();
 try {
-    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet.xlsx");
+    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-2.xlsx");
     XSSFWorkbook wb = new XSSFWorkbook(fis);
     XSSFSheet sheet = wb.getSheet("Sheet1");
     
     for(int count = 1;count<=sheet.getLastRowNum();count++){
         XSSFRow row = sheet.getRow(count);
         System.out.println("Running test case " + row.getCell(0).toString());
-        runTest(row.getCell(1).toString(),row.getCell(2).toString(), row.getCell(3).toString());
+        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
     }
     fis.close();
 } catch (IOException e) {
@@ -38,7 +38,7 @@ try {
 }
 public static void runTest(String url, String uName, String pwd) throws Exception {
 //for (int i=0; i<=15; i ++) {
-driver.get(url);
+	driver.navigate().to(url);
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
@@ -53,12 +53,16 @@ driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/precedin
 Thread.sleep(2000);
 System.out.println("Logged in " + url);
 Thread.sleep(1000);
+WebElement logo = driver.findElement(By.xpath("//div[@class='logo-container']"));
+Actions actions1 = new Actions(driver);
+actions1.click(logo).perform();
+
 WebElement CW = driver.findElement(By.xpath("//div[@class='continue-watching ']"));
 if (CW.isDisplayed()) {
 	WebElement cw = driver.findElement(By.xpath("//*[text() = 'Continue Watching']"));
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("arguments[0].scrollIntoView();", cw);
-driver.findElement(By.xpath("(//div[@class='image'])[1]")).click();
+driver.findElement(By.xpath("(//*[@class='slick-list'])[2]/div[1]/div[1]")).click();
 System.out.println("Video started");
 driver.manage().timeouts().implicitlyWait(31, TimeUnit.SECONDS);
 try {                       
@@ -82,9 +86,9 @@ Thread.sleep(10000);
 else {
 	System.out.println("Continue watching tray not available");
 }
-WebElement logo = driver.findElement(By.xpath("//div[@class='logo-container']"));
-Actions actions1 = new Actions(driver);
-actions1.click(logo).perform();
+WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
+Actions actions11 = new Actions(driver);
+actions11.click(logo1).perform();
 }
 
 	

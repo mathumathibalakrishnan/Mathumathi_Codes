@@ -21,9 +21,9 @@ static WebDriver driver;
 
 	public static void main(String[] args) throws Exception {
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		 driver = new ChromeDriver();
 		try {
-		  FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/testtry-3.xlsx");
+		  FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/testtry-4.xlsx");
 		    XSSFWorkbook wb = new XSSFWorkbook(fis);
 		    XSSFSheet sheet = wb.getSheet("Sheet1");
 		    
