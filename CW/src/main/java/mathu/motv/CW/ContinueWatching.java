@@ -52,51 +52,46 @@ driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/precedin
 Thread.sleep(2000);
 System.out.println("Logged in " + url);
 Thread.sleep(1000);
+try{
+    
+    driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
+      
+      if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) { }
+      else { driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click(); }
+    
+    try {                       
+      String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
+               if (erro1.contains("404")) 
+               {
+                     System.out.println("Video not working due to " +erro1); 
+               }
+              driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();
+       }
+    catch(Exception e) {
+        try {
+        String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
+        if (erro.contains("The media could not be loaded")) 
+        {
+        System.out.println("Video not working due to " +erro);
+        }
+            } 
+      
+        catch(Exception e1) 
+        {
+        System.out.println("Video started");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        System.out.println("Video is working fine without any issue");         
+        }   
+        driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
+   
+    }
+}
 
-try {
-if (driver.findElement(By.xpath("//div[@class='continue-watching ']")).isDisplayed()) {
-
-driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
-
-/*
-if (driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).isDisplayed()){
-	
-	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click(); }
-}
-*/
-if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) {
-	
-}
-else {
-	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
-	
-}
-}
-}
-catch (Exception e) {
-	System.out.println("Continue watching tray not available");
-}
+catch (Exception e) { System.out.println("Continue watching tray not available"); }
 
 
-try {                       
-           String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
-           if (erro1.contains("404")) {
-                     System.out.println("Video not working due to " +erro1); }
-                                 driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();
-           }catch(Exception e) {
-                      try {
-                      String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
-                      if (erro.contains("The media could not be loaded")) {
-                                System.out.println("Video not working due to " +erro);
-                            }
-                      }catch(Exception e1 ) {
-                      System.out.println("Video is working fine without any issue");         
-                       }    
- System.out.println("Video started");
- driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
  
-driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
-           }
+                   
 Thread.sleep(10000);
 
 
@@ -106,7 +101,6 @@ Actions actions11 = new Actions(driver);
 actions11.click(logo1).perform();
 
 
-	
 }
 public void teardown() {
 	driver.close();
