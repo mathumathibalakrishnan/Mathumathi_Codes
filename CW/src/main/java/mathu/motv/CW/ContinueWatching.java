@@ -52,61 +52,60 @@ driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/precedin
 Thread.sleep(2000);
 System.out.println("Logged in " + url);
 Thread.sleep(1000);
-try{
-    
+try {
+    if (driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).isDisplayed())
+    {
     driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
-      
-      if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) { 
-
-System.out.println("Video started");
-driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-System.out.println("Video is working fine without any issue"); 
-
-      }
-      else { driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
-
-System.out.println("Video started");
-driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-System.out.println("Video is working fine without any issue"); 
-
-}
-    
-    try {                       
-      String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
-               if (erro1.contains("404")) 
-               {
-                     System.out.println("Video not working due to " +erro1); 
-               }
-              driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();
-       }
-    catch(Exception e) {
-        
-        String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
-        if (erro.contains("The media could not be loaded")) 
-        {
-        System.out.println("Video not working due to " +erro);
-        }
-            
+    System.out.println("Continue watching tray available");
     }
+              try {
+              if (driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).isDisplayed()) { 
+            	  driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
+            	  System.out.println("Video started");
+                driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+                System.out.println("Video is working fine without any issue");   
+                driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
+                Thread.sleep(1000);
+                driver.findElement(By.xpath("//div[@class='logo-container']")).click();
+                /*WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
+                Actions actions11 = new Actions(driver);
+                actions11.click(logo1).perform();*/
+                      }
+              else { 
+                System.out.println("Video started1");
+                driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+                System.out.println("Video is working fine without any issue1"); 
+                driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
+                Thread.sleep(1000);
+                WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
+                Actions actions11 = new Actions(driver);
+                actions11.click(logo1).perform();
+                    }
+                   }
+                catch (Exception e3) {
+                try {
+                String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
+                if (erro1.contains("404")) 
+                   {
+                   System.out.println("Video not working due to " +erro1); 
+                   }
+                driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();  
+                    }
+                catch (Exception e4){
+                    String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
+                    if (erro.contains("The media could not be loaded")) 
+                    {
+                    System.out.println("Video not working due to " +erro);
+                    }
+                    }
+                    }
       
+
     }
 
-
-catch (Exception e2) { System.out.println("Continue watching tray not available"); }
-
-        
-
-driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
-
-                   
-Thread.sleep(10000);
-
-
-
-WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
-Actions actions11 = new Actions(driver);
-actions11.click(logo1).perform();
-
+    catch (Exception e5) { 
+                        System.out.println("Continue watching tray not available"); 
+                         }
 
 }
 public void teardown() {
