@@ -7,7 +7,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +25,7 @@ try {
     XSSFWorkbook wb = new XSSFWorkbook(fis);
     XSSFSheet sheet = wb.getSheet("Sheet1");
     
-    for(int count = 1;count<=sheet.getLastRowNum();count++){
+    for(int count = 7;count<=sheet.getLastRowNum();count++){
         XSSFRow row = sheet.getRow(count);
         System.out.println("Running test case " + row.getCell(0).toString());
         runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
@@ -53,18 +52,32 @@ driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/precedin
 Thread.sleep(2000);
 System.out.println("Logged in " + url);
 Thread.sleep(1000);
-WebElement logo = driver.findElement(By.xpath("//div[@class='logo-container']"));
-Actions actions1 = new Actions(driver);
-actions1.click(logo).perform();
 
-WebElement CW = driver.findElement(By.xpath("//div[@class='continue-watching ']"));
-if (CW.isDisplayed()) {
-	WebElement cw = driver.findElement(By.xpath("//*[text() = 'Continue Watching']"));
-	JavascriptExecutor jse = (JavascriptExecutor)driver;
-	jse.executeScript("arguments[0].scrollIntoView();", cw);
-driver.findElement(By.xpath("(//*[@class='slick-list'])[2]/div[1]/div[1]")).click();
-System.out.println("Video started");
-driver.manage().timeouts().implicitlyWait(31, TimeUnit.SECONDS);
+try {
+if (driver.findElement(By.xpath("//div[@class='continue-watching ']")).isDisplayed()) {
+
+driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
+
+/*
+if (driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).isDisplayed()){
+	
+	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click(); }
+}
+*/
+if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) {
+	
+}
+else {
+	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
+	
+}
+}
+}
+catch (Exception e) {
+	System.out.println("Continue watching tray not available");
+}
+
+
 try {                       
            String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
            if (erro1.contains("404")) {
@@ -78,21 +91,23 @@ try {
                             }
                       }catch(Exception e1 ) {
                       System.out.println("Video is working fine without any issue");         
-                       }                 
+                       }    
+ System.out.println("Video started");
+ driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+ 
 driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
            }
 Thread.sleep(10000);
-}
-else {
-	System.out.println("Continue watching tray not available");
-}
+
+
+
 WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
 Actions actions11 = new Actions(driver);
 actions11.click(logo1).perform();
-}
+
 
 	
-
+}
 public void teardown() {
 	driver.close();
 }
