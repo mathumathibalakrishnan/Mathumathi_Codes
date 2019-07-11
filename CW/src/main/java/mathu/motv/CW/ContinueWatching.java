@@ -25,13 +25,13 @@ try {
     XSSFWorkbook wb = new XSSFWorkbook(fis);
     XSSFSheet sheet = wb.getSheet("Sheet1");
     
-    for(int count = 7;count<=sheet.getLastRowNum();count++){
+    for(int count = 3;count<=sheet.getLastRowNum();count++){
         XSSFRow row = sheet.getRow(count);
         System.out.println("Running test case " + row.getCell(0).toString());
         runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
     }
     fis.close();
-} catch (IOException e) {
+} catch (IOException e3) {
     System.out.println("Test data file not found");
 }   
 }
@@ -56,8 +56,20 @@ try{
     
     driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
       
-      if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) { }
-      else { driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click(); }
+      if (driver.findElement(By.xpath("//*[@class=' icon icon-pause']")).isDisplayed()) { 
+
+System.out.println("Video started");
+driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+System.out.println("Video is working fine without any issue"); 
+
+      }
+      else { driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
+
+System.out.println("Video started");
+driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+System.out.println("Video is working fine without any issue"); 
+
+}
     
     try {                       
       String erro1 = driver.findElement(By.cssSelector("h1[class*='fade__content']")).getText();
@@ -68,29 +80,24 @@ try{
               driver.findElement(By.xpath("//span[contains(text(),'Home')]")).click();
        }
     catch(Exception e) {
-        try {
+        
         String erro =  driver.findElement(By.xpath("//div[@class='vjs-modal-dialog-content' and starts-with(text(), 'The media ')]")).getText();
         if (erro.contains("The media could not be loaded")) 
         {
         System.out.println("Video not working due to " +erro);
         }
-            } 
-      
-        catch(Exception e1) 
-        {
-        System.out.println("Video started");
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        System.out.println("Video is working fine without any issue");         
-        }   
-        driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
-   
+            
     }
-}
+      
+    }
 
-catch (Exception e) { System.out.println("Continue watching tray not available"); }
 
+catch (Exception e2) { System.out.println("Continue watching tray not available"); }
 
- 
+        
+
+driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
+
                    
 Thread.sleep(10000);
 
