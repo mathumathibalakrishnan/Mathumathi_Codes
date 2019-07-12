@@ -24,16 +24,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	public class CW {
 		
 	static WebDriver driver;
-	@BeforeTest
+@Test
 	public static void data() throws Exception {
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
 	try {
-	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-6.xlsx");
+	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-7.xlsx");
 	    XSSFWorkbook wb = new XSSFWorkbook(fis);
 	    XSSFSheet sheet = wb.getSheet("Sheet1");
 	    
-	    for(int count = 2;count<=sheet.getLastRowNum();count++){
+	    for(int count = 3;count<=sheet.getLastRowNum();count++){
 	        XSSFRow row = sheet.getRow(count);
 	       // System.out.println("Running test case " + row.getCell(0).toString());
 	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
@@ -43,7 +43,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	    System.out.println("Test data file not found");
 	}   
 	}
-	@Test
+	
 	public static void runTest(String url, String uName, String pwd) throws Exception {
 		driver.navigate().to(url);
 	driver.manage().window().maximize();
@@ -58,26 +58,33 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	driver.findElement(By.xpath("//*[@class='input-box'][2]/input")).sendKeys(pwd);
 	driver.findElement(By.xpath("//div[@class='forgot-password-button fat']/preceding-sibling::input")).submit();
 	Thread.sleep(2000);
-	if (driver.findElement(By.xpath("//*[@class='error-box collapsible ']")).isDisplayed()){
-	 System.out.println("User not logged in");
-	 }
-	else {
+	try {
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='logo-container']")).isDisplayed(), "User logged in" +url);
 		System.out.println("Logged in " + url);
+		System.out.println(driver.getTitle());
 	}
+		catch (Exception e) {
+			e.getMessage();
+		}
 	Thread.sleep(1000);
 
 
-	if (driver.getPageSource().contains("Continue")) {
+	if (driver.getPageSource().contains("Continue Watching")) {
 		try {
 	    System.out.println("Continue watching tray available");
 	    driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
 	    
-	    if (url=="https://moviespree.com") {
-	    WebElement isPresent = driver.findElement(By.xpath("//*[@class='play-icon-overlay']"));
+	    if(driver.getPageSource().contains("SPREE Recommended")) {
+	    	System.out.println("movie");
 	    	  driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
-	              }
+	    	  
+	    }
+	   
+	              
+	              
+	    Thread.sleep(1000);
 	    System.out.println("Video started1");
-	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	    System.out.println("Video is working fine without any issue1"); 
 
 	    WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
@@ -113,7 +120,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	               
 	   }
 
-@AfterTest
+
 	public void teardown() {
 		driver.close();
 	}
