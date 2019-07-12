@@ -67,8 +67,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 			e.getMessage();
 		}
 	Thread.sleep(1000);
-
-
 	if (driver.getPageSource().contains("Continue Watching")) {
 		try {
 	    System.out.println("Continue watching tray available");
@@ -79,10 +77,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	    	  driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
 	    	  
 	    }
-	   
-	              
-	              
-	    Thread.sleep(1000);
+	   	    Thread.sleep(1000);
 	    System.out.println("Video started1");
 	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	    System.out.println("Video is working fine without any issue1"); 
