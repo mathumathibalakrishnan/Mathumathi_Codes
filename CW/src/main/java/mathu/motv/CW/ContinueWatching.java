@@ -21,11 +21,11 @@ public static void main(String[] args) throws Exception {
 WebDriverManager.chromedriver().setup();
 driver = new ChromeDriver();
 try {
-    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-4.xlsx");
+    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-6.xlsx");
     XSSFWorkbook wb = new XSSFWorkbook(fis);
     XSSFSheet sheet = wb.getSheet("Sheet1");
     
-    for(int count = 2;count<=sheet.getLastRowNum();count++){
+    for(int count = 6;count<=sheet.getLastRowNum();count++){
         XSSFRow row = sheet.getRow(count);
         System.out.println("Running test case " + row.getCell(0).toString());
         runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
@@ -59,15 +59,17 @@ if (driver.getPageSource().contains("Continue")) {
 	try {
     System.out.println("Continue watching tray available");
     driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
-    Boolean isPresent = driver.findElements(By.xpath("//*[@class='play-icon-overlay']")).size() > 0;
-    if (isPresent==true) { 
+    
+    if (url=="https://moviespree.com") {
+    WebElement isPresent = driver.findElement(By.xpath("//*[@class='play-icon-overlay']"));
     	  driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
               }
     System.out.println("Video started1");
     driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     System.out.println("Video is working fine without any issue1"); 
-    driver.findElement(By.xpath("//*[@class='vjs-tech']")).click();
-    Thread.sleep(1000);
+  //  driver.findElement(By.xpath("//*[@class='vjs-control-text']")).click();
+  
+ //   Thread.sleep(1000);
     WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
     Actions actions11 = new Actions(driver);
     actions11.click(logo1).perform();
@@ -100,11 +102,7 @@ else {
       
                
    }
-/*
-    catch (Exception e5) { 
-                        System.out.println("Continue watching tray not available"); 
-                         }
-*/
+
 
 public void teardown() {
 	driver.close();
