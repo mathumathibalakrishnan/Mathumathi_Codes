@@ -1,5 +1,5 @@
 package mathu.motv.CW;
-	import static org.testng.Assert.assertTrue;
+	
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +15,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -29,14 +28,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
 	try {
-	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-7.xlsx");
+	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-8.xlsx");
 	    XSSFWorkbook wb = new XSSFWorkbook(fis);
 	    XSSFSheet sheet = wb.getSheet("Sheet1");
 	    
-	    for(int count = 3;count<=sheet.getLastRowNum();count++){
+	    for(int count = 5;count<=sheet.getLastRowNum();count++){
 	        XSSFRow row = sheet.getRow(count);
 	       // System.out.println("Running test case " + row.getCell(0).toString());
-	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
+	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).getRawValue());
 	    }
 	    fis.close();
 	} catch (IOException e3) {
@@ -62,6 +61,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='logo-container']")).isDisplayed(), "User logged in" +url);
 		System.out.println("Logged in " + url);
 		System.out.println(driver.getTitle());
+		Thread.sleep(1000);
 	}
 		catch (Exception e) {
 			e.getMessage();
@@ -72,14 +72,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	    System.out.println("Continue watching tray available");
 	    driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
 	    
-	    if(driver.getPageSource().contains("SPREE Recommended")) {
-	    	System.out.println("movie");
-	    	  driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
+	  //  driver.findElements(By.xpath("//*[contains(text(),'SPREE ')]"))
+	    //	System.out.println("movie started");
+	    if (driver.getTitle().contains("movieSPREE")) {
+	    	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
+	    	 Thread.sleep(30000);
+	    	 System.out.println("movie stopped");
 	    	  
-	    }
-	   	    Thread.sleep(1000);
+	            }
+	   	    //Thread.sleep(1000);
 	    System.out.println("Video started1");
-	    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	    Thread.sleep(30000);
 	    System.out.println("Video is working fine without any issue1"); 
 
 	    WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
@@ -115,7 +118,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	               
 	   }
 
-
+@AfterTest
 	public void teardown() {
 		driver.close();
 	}
