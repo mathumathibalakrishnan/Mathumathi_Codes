@@ -28,14 +28,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
 	try {
-	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-8.xlsx");
+	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-10.xlsx");
 	    XSSFWorkbook wb = new XSSFWorkbook(fis);
 	    XSSFSheet sheet = wb.getSheet("Sheet1");
 	    
-	    for(int count = 5;count<=sheet.getLastRowNum();count++){
+	    for(int count = 1;count<=sheet.getLastRowNum();count++){
 	        XSSFRow row = sheet.getRow(count);
 	       // System.out.println("Running test case " + row.getCell(0).toString());
-	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).getRawValue());
+	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
 	    }
 	    fis.close();
 	} catch (IOException e3) {
