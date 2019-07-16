@@ -5,6 +5,7 @@
     <classes>
       <class name="mathu.motv.CW.CW">
         <methods>
+          <include name="teardown"/>
           <include name="data"/>
         </methods>
       </class> <!-- mathu.motv.CW.CW -->
