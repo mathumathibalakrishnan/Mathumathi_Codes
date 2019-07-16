@@ -28,13 +28,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
 	try {
-	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-10.xlsx");
+	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-11.xlsx");
 	    XSSFWorkbook wb = new XSSFWorkbook(fis);
 	    XSSFSheet sheet = wb.getSheet("Sheet1");
 	    
 	    for(int count = 1;count<=sheet.getLastRowNum();count++){
 	        XSSFRow row = sheet.getRow(count);
-	       // System.out.println("Running test case " + row.getCell(0).toString());
 	        runTest(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
 	    }
 	    fis.close();
@@ -45,6 +44,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	
 	public static void runTest(String url, String uName, String pwd) throws Exception {
 		driver.navigate().to(url);
+		
 	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 	WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
@@ -60,7 +60,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	try {
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='logo-container']")).isDisplayed(), "User logged in" +url);
 		System.out.println("Logged in " + url);
-		System.out.println(driver.getTitle());
 		Thread.sleep(1000);
 	}
 		catch (Exception e) {
@@ -72,17 +71,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 	    System.out.println("Continue watching tray available");
 	    driver.findElement(By.xpath("//div[@class='continue-watching '][1]/div/div[2]//a[1]")).click();
 	    
-	  //  driver.findElements(By.xpath("//*[contains(text(),'SPREE ')]"))
-	    //	System.out.println("movie started");
 	    if (driver.getTitle().contains("movieSPREE")) {
 	    	driver.findElement(By.xpath("//*[@class='play-icon-overlay']")).click();
-	    	 Thread.sleep(30000);
-	    	 System.out.println("movie stopped");
-	    	  
-	            }
-	   	    //Thread.sleep(1000);
-	    System.out.println("Video started1");
-	    Thread.sleep(30000);
+	    	 Thread.sleep(15000);
+	    	    }
+	    Thread.sleep(15000);
 	    System.out.println("Video is working fine without any issue1"); 
 
 	    WebElement logo1 = driver.findElement(By.xpath("//div[@class='logo-container']"));
