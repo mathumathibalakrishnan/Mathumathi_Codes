@@ -10,11 +10,14 @@ public class TestScripts extends POM {
 	@Test (priority=1)
 	public void Hoichoi() throws Exception {
 		
-	
+	try {
 	t.LoginS("https://www.hoichoi.tv", "kenneth@viewlift.com", "test1234");
 	t.ContinueWatchingS();
 	t.LogOut();
-		
+	}
+	catch (Exception p1){
+		driver.quit();
+	}
 		
 	}
 	

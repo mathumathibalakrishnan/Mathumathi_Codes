@@ -94,7 +94,7 @@ static WebDriver driver;
 		catch (Exception try1) {
 			
 			System.out.println("Login button not available");
-			driver.close();
+			driver.quit();;
 		}
 		
 	}
