@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="mathu.motv.CW.CW">
+      <class name="mathu.motv.CW.TestScripts">
         <methods>
-          <include name="teardown"/>
-          <include name="data"/>
+          <include name="MOTV"/>
+          <include name="Hoichoi"/>
         </methods>
-      </class> <!-- mathu.motv.CW.CW -->
+      </class> <!-- mathu.motv.CW.TestScripts -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
