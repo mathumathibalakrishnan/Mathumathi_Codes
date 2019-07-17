@@ -5,8 +5,7 @@
     <classes>
       <class name="mathu.motv.CW.TestScripts">
         <methods>
-          <include name="MOTV"/>
-          <include name="Hoichoi"/>
+          <include name="MovieSpree"/>
         </methods>
       </class> <!-- mathu.motv.CW.TestScripts -->
     </classes>
