@@ -1,12 +1,7 @@
 package mathu.motv.CW;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,25 +13,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class POM {
 static WebDriver driver;
-public void setup() throws Exception {
-	WebDriverManager.chromedriver().setup();
-	/*
-	try {
-	    FileInputStream fis = new FileInputStream("/Users/mathumathibalakrishnan/git/repository/CW/TestDataSheet-11.xlsx");
-	    XSSFWorkbook wb = new XSSFWorkbook(fis);
-	    XSSFSheet sheet = wb.getSheet("Sheet1");
-	    
-	    for(int count = 1;count<=sheet.getLastRowNum();count++){
-	        XSSFRow row = sheet.getRow(count);
-	        LoginS(row.getCell(0).toString(),row.getCell(1).toString(), row.getCell(2).toString());
-	    }
-	    fis.close();
-	} catch (IOException e3) {
-	    System.out.println("Test data file not found");
-	}  
-	*/
-}
 	public void ContinueWatchingS() {
+		try {
 		if (driver.getPageSource().contains("Continue Watching")) {
 			try {
 		    System.out.println("Continue watching tray available");
@@ -76,17 +54,22 @@ public void setup() throws Exception {
 		   
 		    	System.out.println("Continue watching tray not available");
 		    }
+		}
+		catch (Exception try2){
+			System.out.println("Continue watching not working due to login issue");
+		}
 		    
 	}
 		
 	public void LoginS(String url, String uName, String pwd) throws Exception {
+		try {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.navigate().to(url);
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-		try {
+		
 			WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
 			driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 			Actions actions = new Actions(driver);
@@ -108,14 +91,16 @@ public void setup() throws Exception {
 			Thread.sleep(1000);
 			
 		}
-		catch (Exception t1) {
+		catch (Exception try1) {
+			
 			System.out.println("Login button not available");
+			driver.close();
 		}
 		
 	}
 
 	public void LogOut() throws InterruptedException {
-		
+		try {
 		Actions a = new Actions(driver);
 		a.moveToElement(driver.findElement(By.xpath("//*[@class='navigation-link greeting']"))).build().perform();
 		Thread.sleep(3000);
@@ -123,6 +108,10 @@ public void setup() throws Exception {
 		
 		System.out.println("Logout successfully");
 		driver.close();
+		}
+		catch (Exception try3){
+			System.out.println("Logout not available due to login issue");
+		}
 	}
 	
 }
