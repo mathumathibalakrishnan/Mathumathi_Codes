@@ -7,7 +7,7 @@ public class TestScripts extends POM {
 
 	POM t = new POM();
 
-	@Test (priority=1)
+	@Test 
 	public void Hoichoi() throws Exception {
 		
 	try {
@@ -16,11 +16,17 @@ public class TestScripts extends POM {
 	t.LogOut();
 	}
 	catch (Exception p1){
-		driver.quit();
+	p1.getStackTrace();
+	
 	}
 		
+	finally {
+		driver.close();
+		
+	}
 	}
 	
+	@Test
 		public void MOTV() throws Exception {
 			try {
 			t.LoginS("https://app.myoutdoortv.com", "arul@viewlift.com", "test1");
@@ -30,11 +36,14 @@ public class TestScripts extends POM {
 			catch (Exception m1)
 			{
 				m1.getMessage();
-				System.out.println("Any method failed");
+			}
+			finally {
+				driver.close();
+				
 			}
 			
 		}
-	
+	@Test
 		public void MovieSpree() throws Exception {
 		try {
 			t.LoginS("https://moviespree.com", "eugene+7@viewlift.com", "aaaaaa");
@@ -44,12 +53,14 @@ public class TestScripts extends POM {
 		catch (Exception m2)
 		{
 			m2.getMessage();
-			System.out.println("Any method failed");
+			}
+		finally {
+			driver.close();
+			
 		}
-		
 		}
 	
-	
+	@Test
 	public void MSE() throws Exception {
 		try {
 			t.LoginS("https://www.monumentalsportsnetwork.com", "aarti+mse@viewlift.com", "test1");
@@ -59,11 +70,13 @@ public class TestScripts extends POM {
 		catch (Exception ms1)
 		{
 			ms1.getMessage();
-			System.out.println("Any method failed");
+			}
+		finally {
+			driver.close();
+			
 		}
-		
 		}
-	
+	@Test
 	public void AFA() throws Exception {
 	try {
 			t.LoginS("https://afaplay.viewlift.com", "mathumathi+5june@viewlift.com", "Test@1");
@@ -73,12 +86,15 @@ public class TestScripts extends POM {
 	catch (Exception af1)
 	{
 		af1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.quit();;
+		
 	}
 	
 		}
 	
-
+	@Test
 
 public void LSN() throws Exception {
 	try {
@@ -89,12 +105,14 @@ public void LSN() throws Exception {
 	catch (Exception ls1)
 	{
 		ls1.getMessage();
-		System.out.println("Any method failed");
+		}finally {
+		driver.close();
+		
 	}
 	
 	}
 
-
+	@Test
 public void MotoAmerica() throws Exception {
 	try {
 		t.LoginS("https://www.motoamericaliveplus.com/", "sandeep@gmail.com", "Test@1");
@@ -104,12 +122,15 @@ public void MotoAmerica() throws Exception {
 	catch (Exception mo1)
 	{
 		mo1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
 	
 	}
 
-
+	@Test
 public void TB() throws Exception {
 	try {
 		t.LoginS("https://www.theidentitytb.com", "mathumathi+15@viewlift.com", "test1");
@@ -119,13 +140,16 @@ public void TB() throws Exception {
 	catch (Exception tb1)
 	{
 		tb1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
 	
 	}
 
 
-
+	@Test
 public void Kronon() throws Exception {
 try {
 		t.LoginS("https://www.kronon.tv", "mathumathi+16@viewlift.com", "Test@1");
@@ -135,13 +159,15 @@ try {
 catch (Exception kr1)
 {
 	kr1.getMessage();
-	System.out.println("Any method failed");
+	}
+finally {
+	driver.close();
+	
 }
-
 	}
 
 
-
+	@Test
 public void Pll() throws Exception {
 	try {
 		t.LoginS("https://www.premierlacrosseleague.com/", "bobtest956@gmail.com", "aaaaaa");
@@ -151,13 +177,16 @@ public void Pll() throws Exception {
 	catch (Exception pll1)
 	{
 		pll1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
 	
 	}
 
 
-
+	@Test
 public void AFL() throws Exception {
 	try {
 		t.LoginS("https://www.arenafootball.com", "bobtest956@gmail.com", "aaaaaa");
@@ -167,13 +196,15 @@ public void AFL() throws Exception {
 	catch (Exception afl1)
 	{
 		afl1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
-	
 	}
 
 
-
+	@Test
 public void BeatTV() throws Exception {
 	try {
 		t.LoginS("https://www.be-at.tv/", "bobtest956@gmail.com", "aaaaaa");
@@ -183,12 +214,14 @@ public void BeatTV() throws Exception {
 	catch (Exception beat1)
 	{
 		beat1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
-	
 	}
 
-
+	@Test
 
 public void HereTV() throws Exception {
 	try {
@@ -199,7 +232,10 @@ public void HereTV() throws Exception {
 	catch (Exception here1)
 	{
 		here1.getMessage();
-		System.out.println("Any method failed");
+		}
+	finally {
+		driver.close();
+		
 	}
 	
 	}

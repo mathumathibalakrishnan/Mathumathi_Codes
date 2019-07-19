@@ -54,11 +54,12 @@ static WebDriver driver;
 		   
 		    	System.out.println("Continue watching tray not available");
 		    }
+		
 		}
-		catch (Exception try2){
-			System.out.println("Continue watching not working due to login issue");
+		catch (Exception cw1){
+			cw1.getStackTrace();
+			System.out.println("Login not available");
 		}
-		    
 	}
 		
 	public void LoginS(String url, String uName, String pwd) throws Exception {
@@ -91,13 +92,13 @@ static WebDriver driver;
 			Thread.sleep(1000);
 			
 		}
-		catch (Exception try1) {
-			
-			System.out.println("Login button not available");
-			driver.quit();;
+		catch (Exception lo1){
+			lo1.getStackTrace();
+			System.out.println("Login not available");
+		}
 		}
 		
-	}
+	
 
 	public void LogOut() throws InterruptedException {
 		try {
@@ -108,11 +109,16 @@ static WebDriver driver;
 		
 		System.out.println("Logout successfully");
 		driver.close();
-		}
-		catch (Exception try3){
-			System.out.println("Logout not available due to login issue");
-		}
+		
 	}
-	
+	catch (Exception logou1){
+		logou1.getStackTrace();
+		System.out.println("Login not available");
+	}
+		
+	}
 }
+
+	
+
 
