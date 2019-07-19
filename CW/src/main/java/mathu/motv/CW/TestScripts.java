@@ -21,7 +21,7 @@ public class TestScripts extends POM {
 	}
 		
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	}
@@ -29,7 +29,7 @@ public class TestScripts extends POM {
 	@Test
 		public void MOTV() throws Exception {
 			try {
-			t.LoginS("https://app.myoutdoortv.com", "arul@viewlift.com", "test1");
+			t.LoginS("https://app.myoutdoortv.com", "shraddhs+3@gmail.com", "test12345");
 			t.ContinueWatchingS();
 			t.LogOut();
 			}
@@ -38,7 +38,7 @@ public class TestScripts extends POM {
 				m1.getMessage();
 			}
 			finally {
-				driver.close();
+				driver.quit();
 				
 			}
 			
@@ -55,7 +55,7 @@ public class TestScripts extends POM {
 			m2.getMessage();
 			}
 		finally {
-			driver.close();
+			driver.quit();
 			
 		}
 		}
@@ -72,7 +72,7 @@ public class TestScripts extends POM {
 			ms1.getMessage();
 			}
 		finally {
-			driver.close();
+			driver.quit();
 			
 		}
 		}
@@ -88,7 +88,7 @@ public class TestScripts extends POM {
 		af1.getMessage();
 		}
 	finally {
-		driver.quit();;
+		driver.quit();
 		
 	}
 	
@@ -106,7 +106,7 @@ public void LSN() throws Exception {
 	{
 		ls1.getMessage();
 		}finally {
-		driver.close();
+			driver.quit();
 		
 	}
 	
@@ -124,7 +124,7 @@ public void MotoAmerica() throws Exception {
 		mo1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	
@@ -142,7 +142,7 @@ public void TB() throws Exception {
 		tb1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	
@@ -161,7 +161,7 @@ catch (Exception kr1)
 	kr1.getMessage();
 	}
 finally {
-	driver.close();
+	driver.quit();
 	
 }
 	}
@@ -179,7 +179,7 @@ public void Pll() throws Exception {
 		pll1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	
@@ -198,7 +198,7 @@ public void AFL() throws Exception {
 		afl1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	}
@@ -216,7 +216,7 @@ public void BeatTV() throws Exception {
 		beat1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	}
@@ -234,7 +234,7 @@ public void HereTV() throws Exception {
 		here1.getMessage();
 		}
 	finally {
-		driver.close();
+		driver.quit();
 		
 	}
 	

@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class POM {
 static WebDriver driver;
 	public void ContinueWatchingS() {
-		try {
+		
 		if (driver.getPageSource().contains("Continue Watching")) {
 			try {
 		    System.out.println("Continue watching tray available");
@@ -54,12 +54,8 @@ static WebDriver driver;
 		   
 		    	System.out.println("Continue watching tray not available");
 		    }
+
 		
-		}
-		catch (Exception cw1){
-			cw1.getStackTrace();
-			System.out.println("Login not available");
-		}
 	}
 		
 	public void LoginS(String url, String uName, String pwd) throws Exception {
@@ -69,10 +65,10 @@ static WebDriver driver;
 		driver.navigate().to(url);
 		
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 			WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
-			driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			Actions actions = new Actions(driver);
 			actions.click(element).perform();
 			driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).click();
@@ -94,7 +90,7 @@ static WebDriver driver;
 		}
 		catch (Exception lo1){
 			lo1.getStackTrace();
-			System.out.println("Login not available");
+			System.out.println("Login button not available for " +url);
 		}
 		}
 		
@@ -113,7 +109,7 @@ static WebDriver driver;
 	}
 	catch (Exception logou1){
 		logou1.getStackTrace();
-		System.out.println("Login not available");
+		System.out.println("Logout cant be performed due to login issue");
 	}
 		
 	}
