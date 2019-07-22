@@ -2,64 +2,64 @@
 <testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-07-19T17:57:25Z" name="Suite" finished-at="2019-07-19T18:02:44Z" duration-ms="318919">
+  <suite started-at="2019-07-22T21:09:26Z" name="Default suite" finished-at="2019-07-22T21:13:35Z" duration-ms="248443">
     <groups>
     </groups>
-    <test started-at="2019-07-19T17:57:25Z" name="Test" finished-at="2019-07-19T18:02:44Z" duration-ms="318919">
+    <test started-at="2019-07-22T21:09:26Z" name="Default test" finished-at="2019-07-22T21:13:35Z" duration-ms="248443">
       <class name="mathu.motv.CW.TestScripts">
-        <test-method signature="AFA()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:57:25Z" name="AFA" finished-at="2019-07-19T17:57:51Z" duration-ms="26316" status="PASS">
+        <test-method signature="AFA()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:09:26Z" name="AFA" finished-at="2019-07-22T21:09:40Z" duration-ms="13754" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AFA -->
-        <test-method signature="AFL()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:57:51Z" name="AFL" finished-at="2019-07-19T17:58:03Z" duration-ms="12070" status="PASS">
+        <test-method signature="AFL()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:09:40Z" name="AFL" finished-at="2019-07-22T21:09:53Z" duration-ms="13180" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AFL -->
-        <test-method signature="BeatTV()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:58:03Z" name="BeatTV" finished-at="2019-07-19T17:58:15Z" duration-ms="11789" status="PASS">
+        <test-method signature="BeatTV()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:09:53Z" name="BeatTV" finished-at="2019-07-22T21:10:06Z" duration-ms="12176" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeatTV -->
-        <test-method signature="HereTV()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:58:15Z" name="HereTV" finished-at="2019-07-19T17:58:54Z" duration-ms="38751" status="PASS">
+        <test-method signature="HereTV()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:10:06Z" name="HereTV" finished-at="2019-07-22T21:10:46Z" duration-ms="39975" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- HereTV -->
-        <test-method signature="Hoichoi()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:58:54Z" name="Hoichoi" finished-at="2019-07-19T17:59:31Z" duration-ms="37371" status="PASS">
+        <test-method signature="Hoichoi()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:10:46Z" name="Hoichoi" finished-at="2019-07-22T21:11:30Z" duration-ms="44272" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Hoichoi -->
-        <test-method signature="Kronon()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:59:31Z" name="Kronon" finished-at="2019-07-19T17:59:45Z" duration-ms="13698" status="PASS">
+        <test-method signature="Kronon()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:11:30Z" name="Kronon" finished-at="2019-07-22T21:11:42Z" duration-ms="11823" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Kronon -->
-        <test-method signature="LSN()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T17:59:45Z" name="LSN" finished-at="2019-07-19T18:00:01Z" duration-ms="16626" status="PASS">
+        <test-method signature="LSN()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:11:42Z" name="LSN" finished-at="2019-07-22T21:11:59Z" duration-ms="17362" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LSN -->
-        <test-method signature="MOTV()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:00:01Z" name="MOTV" finished-at="2019-07-19T18:00:53Z" duration-ms="51888" status="PASS">
+        <test-method signature="MOTV()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:11:59Z" name="MOTV" finished-at="2019-07-22T21:12:17Z" duration-ms="17644" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MOTV -->
-        <test-method signature="MSE()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:00:53Z" name="MSE" finished-at="2019-07-19T18:01:10Z" duration-ms="16440" status="PASS">
+        <test-method signature="MSE()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:12:17Z" name="MSE" finished-at="2019-07-22T21:12:33Z" duration-ms="16617" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MSE -->
-        <test-method signature="MotoAmerica()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:01:10Z" name="MotoAmerica" finished-at="2019-07-19T18:01:21Z" duration-ms="11119" status="PASS">
+        <test-method signature="MotoAmerica()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:12:33Z" name="MotoAmerica" finished-at="2019-07-22T21:12:45Z" duration-ms="12053" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MotoAmerica -->
-        <test-method signature="MovieSpree()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:01:21Z" name="MovieSpree" finished-at="2019-07-19T18:02:18Z" duration-ms="57658" status="PASS">
+        <test-method signature="MovieSpree()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:12:45Z" name="MovieSpree" finished-at="2019-07-22T21:13:06Z" duration-ms="20524" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MovieSpree -->
-        <test-method signature="Pll()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:02:18Z" name="Pll" finished-at="2019-07-19T18:02:32Z" duration-ms="13172" status="PASS">
+        <test-method signature="Pll()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:13:06Z" name="Pll" finished-at="2019-07-22T21:13:19Z" duration-ms="13006" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Pll -->
-        <test-method signature="TB()[pri:0, instance:mathu.motv.CW.TestScripts@394df057]" started-at="2019-07-19T18:02:32Z" name="TB" finished-at="2019-07-19T18:02:44Z" duration-ms="11987" status="PASS">
+        <test-method signature="TB()[pri:0, instance:mathu.motv.CW.TestScripts@f79e]" started-at="2019-07-22T21:13:19Z" name="TB" finished-at="2019-07-22T21:13:35Z" duration-ms="16021" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TB -->
       </class> <!-- mathu.motv.CW.TestScripts -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

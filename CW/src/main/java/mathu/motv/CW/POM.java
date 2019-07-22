@@ -65,10 +65,10 @@ static WebDriver driver;
 		driver.navigate().to(url);
 		
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 			WebElement element = driver.findElement(By.xpath("//*[@class='login-button navigation-link']"));
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			Actions actions = new Actions(driver);
 			actions.click(element).perform();
 			driver.findElement(By.xpath("//*[@class='input-box'][1]/input")).click();
@@ -80,7 +80,7 @@ static WebDriver driver;
 			try {
 				Assert.assertTrue(driver.findElement(By.xpath("//div[@class='logo-container']")).isDisplayed(), "User logged in" +url);
 				System.out.println("Logged in " + url);
-				Thread.sleep(1000);
+				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			}
 				catch (Exception e) {
 					e.getMessage();
