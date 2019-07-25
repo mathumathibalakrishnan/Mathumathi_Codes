@@ -13,7 +13,7 @@ public class signInFBTest extends globalDrivers {
 	@Parameters({ "site" })
 	@Test
 	public void signInWithFB(String site) throws IOException, InterruptedException {
-
+//testing
 		// Implicit wait
 		super.globalDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
