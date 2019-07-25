@@ -1,0 +1,94 @@
+=======================================================Kronon=============================================================
+site.kronon=https://www.kronon.tv/
+username.kronon=bobtest956@gmail.com
+password.kronon=aaaaaa
+facebook.username.kronon = testsnag.sri@gmail.com
+facebook.password.kronon = Snagpassword@21
+
+=======================================================MOTV=============================================================
+site.motv=https://app.myoutdoortv.com/
+username.motv=shraddhs+3@gmail.com
+password.motv=test12345
+facebook.username.motv = testsnag.sri@gmail.com
+facebook.password.motv = Snagpassword@21
+
+=======================================================PLL=============================================================
+site.pll=https://www.premierlacrosseleague.com/
+username.pll=bobtest956@gmail.com
+password.pll=aaaaaa
+facebook.username.pll = testsnag.sri@gmail.com
+facebook.password.pll = Snagpassword@21
+
+
+=======================================================PFL=============================================================
+site.pfl=https://www.pflmma.com/
+username.pfl=bobtest956@gmail.com
+password.pfl=aaaaaa
+facebook.username.pfl = testsnag.sri@gmail.com
+facebook.password.pfl = Snagpassword@21
+
+
+=======================================================Spree=============================================================
+site.spree=https://www.moviespree.com/
+username.spree=bobtest956@gmail.com
+password.spree=aaaaaa
+facebook.username.spree = testsnag.sri@gmail.com
+facebook.password.spree = Snagpassword@21
+
+
+=======================================================NEOU=============================================================
+site.neou=https://www.neoufitness.com/
+site.neouHome=https://www.neoufitness.com/home
+username.neou=bobtest956@gmail.com
+password.neou=aaaaaa
+
+
+=======================================================TampaBay=============================================================
+site.tampaBay=https://www.theidentitytb.com
+username.neou=bobtest956@gmail.com
+password.neou=aaaaaa
+facebook.username.tampaBay = testsnag.sri@gmail.com
+facebook.password.tampaBay = Snagpassword@21
+
+=======================================================BeatTV=============================================================
+site.beatTV=https://www.be-at.tv/
+username.beatTV=bobtest956@gmail.com
+password.beatTV=aaaaaa
+facebook.username.beatTV = testsnag.sri@gmail.com
+facebook.password.beatTV = Snagpassword@21
+
+
+=======================================================HereTV=============================================================
+site.hereTV=https://www.here.tv/
+username.hereTV=eugene@viewlift.com
+password.hereTV=test123
+facebook.username.hereTV = testsnag.sri@gmail.com
+facebook.password.hereTV = Snagpassword@21
+
+=======================================================MSE=============================================================
+site.mse=https://www.monumentalsportsnetwork.com
+username.mse=bobtest956@gmail.com
+password.mse=aaaaaa
+facebook.username.mse = testsnag.sri@gmail.com
+facebook.password.mse = Snagpassword@21
+
+=======================================================Hoichoi=============================================================
+site.hoichoi=https://www.hoichoi.tv/
+username.hoichoi=hcvip001@prod.com
+password.hoichoi=hcvip1
+facebook.username.hoichoi = testsnag.sri@gmail.com
+facebook.password.hoichoi = Snagpassword@21
+
+=======================================================MotoAmerica=============================================================
+site.motoAmerica=https://www.motoamericaliveplus.com/
+username.motoAmerica=bobtest956@gmail.com
+password.motoAmerica=aaaaaa
+facebook.username.motoAmerica = testsnag.sri@gmail.com
+facebook.password.motoAmerica = Snagpassword@21
+=======================================================Horse&Country=============================================================
+site.horseCountry=https://app.horseandcountry.tv
+username.horseCountry=bobtest956@gmail.com
+password.horseCountry=aaaaaa
+facebook.username.horseCountry = testsnag.sri@gmail.com
+facebook.password.horseCountry = Snagpassword@21
+

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="1">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signInFBTest" />
+		</classes>
+	</test>
+
+	<test name="1.1">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signInWithGoogleTest" />
+		</classes>
+	</test>
+
+	<test name="First" preserve-order="true">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signInPlayerTest" />
+		</classes>
+	</test> 
+ 
+	<test name="Second">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signInFromHeaderTest" />
+			<class name="hoichoi.playerTest" />
+		</classes>
+	</test>
+
+	<test name="Third">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signUpTest" />
+			<class name="hoichoi.watchlistTest" />
+		</classes>
+	</test>
+
+	<test name="Fourth">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.historyTest" />
+		</classes>
+	</test>
+
+	<test name="Fith">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.searchCheckShelvesTest" />
+			<class name="hoichoi.usersMenuCheckTest" />
+			<!-- <class name="hoichoi.footerTest" /> -->
+		</classes>
+	</test>
+
+	<test name="Sixth">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class name="hoichoi.signOutTest" />
+		</classes>
+	</test>
+
+	<test name="1.5">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+			<class
+				name="hoichoi.headerCompareNumberOfMenuItemsBeforeAndAfterSignInTest" />
+		</classes>
+	</test>
+
+	<test name="1.2">
+		<parameter name="browser" value="Chrome" />
+		<parameter name="site" value="hoichoi" />
+		<classes>
+		<!-- 	<class name="hoichoi.headerCheckLinksTest" /> -->
+		</classes>
+	</test>
+
+</suite> <!-- Suite -->
