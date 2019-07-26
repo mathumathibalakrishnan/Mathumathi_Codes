@@ -1,4 +1,4 @@
-package viewlift.viewlift.hoichoi.prod;
+package hoichoi;
 
 import java.io.IOException;
 import java.util.ArrayList;

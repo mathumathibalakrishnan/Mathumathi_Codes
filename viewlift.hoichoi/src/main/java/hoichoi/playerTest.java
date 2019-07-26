@@ -1,4 +1,4 @@
-package viewlift.viewlift.hoichoi.prod;
+package hoichoi;
 
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
