@@ -42,7 +42,7 @@ public class signInFBTest extends globalDrivers {
 			super.globalDriver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			throw new RuntimeException(url + ".....Not as expected sign in with video....." + username);
 		}
-
+//test
 		super.globalUser.signOut();
 		super.globalDriver.manage().deleteAllCookies();
 
